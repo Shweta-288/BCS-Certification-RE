@@ -7,6 +7,7 @@ Extra resources to support the BCS Practitioner Certificate in Requirements Engi
 - Practice exercises and sample scenarios
 - Case study handouts used during classroom activities
 - slide for class diagram association and persona
+- Answer sheets and model responses
 
 ## How to use this
 1. Attempt the practice exercises before checking the answer sheet
