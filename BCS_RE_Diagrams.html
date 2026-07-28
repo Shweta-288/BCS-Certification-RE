@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCS RE v6.1 — Trainer Diagrams</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #f0f4f8; color: #1a1a2e; }
+  .page { width: 960px; margin: 0 auto 50px; background: white; padding: 40px; border: 3px solid #028090; page-break-after: always; }
+  @media print { .page { border: 2px solid #028090; margin: 0; width: 100%; } body { background: white; } }
+  .page-title { background: #028090; color: white; padding: 14px 20px; font-size: 22px; font-weight: bold; margin-bottom: 30px; border-radius: 4px; }
+  .page-num { font-size: 13px; color: #aaa; float: right; font-weight: normal; }
+  svg text { font-family: Arial, sans-serif; }
+  .note { background: #E0F4F6; border-left: 4px solid #028090; padding: 10px 15px; margin-top: 20px; font-size: 14px; color: #1a1a2e; }
+</style>
+</head>
+<body>
+
+<!-- DIAGRAM 1: RE FRAMEWORK -->
+<div class="page">
+  <div class="page-title">Diagram 1: The Requirements Engineering Framework <span class="page-num">SLIDE 15</span></div>
+  <svg viewBox="0 0 880 580" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer ring - Management -->
+    <ellipse cx="440" cy="290" rx="420" ry="270" fill="#E0F4F6" stroke="#028090" stroke-width="3"/>
+    <text x="440" y="42" text-anchor="middle" font-size="17" font-weight="bold" fill="#028090">REQUIREMENTS MANAGEMENT — Runs Throughout All Stages</text>
+    <!-- Inner white circle -->
+    <ellipse cx="440" cy="290" rx="340" ry="210" fill="white" stroke="#028090" stroke-width="2" stroke-dasharray="6,3"/>
+    <!-- Stage boxes -->
+    <!-- Elicitation - top -->
+    <rect x="340" y="60" width="200" height="70" rx="10" fill="#028090"/>
+    <text x="440" y="90" text-anchor="middle" font-size="15" font-weight="bold" fill="white">ELICITATION</text>
+    <text x="440" y="112" text-anchor="middle" font-size="12" fill="#E0F4F6">Uncover requirements</text>
+    <!-- Analysis - right -->
+    <rect x="630" y="225" width="190" height="70" rx="10" fill="#1a1a2e"/>
+    <text x="725" y="255" text-anchor="middle" font-size="15" font-weight="bold" fill="white">ANALYSIS</text>
+    <text x="725" y="277" text-anchor="middle" font-size="12" fill="#aaa">Quality check &amp; organise</text>
+    <!-- Documentation - bottom right -->
+    <rect x="560" y="400" width="200" height="70" rx="10" fill="#028090"/>
+    <text x="660" y="430" text-anchor="middle" font-size="15" font-weight="bold" fill="white">DOCUMENTATION</text>
+    <text x="660" y="452" text-anchor="middle" font-size="12" fill="#E0F4F6">Record requirements</text>
+    <!-- Validation - bottom left -->
+    <rect x="130" y="400" width="200" height="70" rx="10" fill="#1a1a2e"/>
+    <text x="230" y="430" text-anchor="middle" font-size="15" font-weight="bold" fill="white">VALIDATION</text>
+    <text x="230" y="452" text-anchor="middle" font-size="12" fill="#aaa">Stakeholders confirm</text>
+    <!-- Planning - left -->
+    <rect x="60" y="225" width="190" height="70" rx="10" fill="#028090"/>
+    <text x="155" y="255" text-anchor="middle" font-size="15" font-weight="bold" fill="white">PLANNING</text>
+    <text x="155" y="277" text-anchor="middle" font-size="12" fill="#E0F4F6">Approach &amp; standards</text>
+    <!-- Arrows between stages (circular) -->
+    <defs>
+      <marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#028090"/>
+      </marker>
+    </defs>
+    <!-- Elicitation → Analysis -->
+    <path d="M 540 95 Q 660 120 635 230" stroke="#028090" stroke-width="2.5" fill="none" marker-end="url(#ah)"/>
+    <!-- Analysis → Documentation -->
+    <path d="M 730 295 Q 750 370 760 400" stroke="#028090" stroke-width="2.5" fill="none" marker-end="url(#ah)"/>
+    <!-- Documentation → Validation -->
+    <path d="M 560 440 L 330 440" stroke="#028090" stroke-width="2.5" fill="none" marker-end="url(#ah)"/>
+    <!-- Validation → Planning -->
+    <path d="M 155 400 Q 120 370 145 295" stroke="#028090" stroke-width="2.5" fill="none" marker-end="url(#ah)"/>
+    <!-- Planning → Elicitation -->
+    <path d="M 248 225 Q 290 130 340 100" stroke="#028090" stroke-width="2.5" fill="none" marker-end="url(#ah)"/>
+    <!-- Centre label -->
+    <text x="440" y="275" text-anchor="middle" font-size="14" fill="#666">Iterative</text>
+    <text x="440" y="295" text-anchor="middle" font-size="14" fill="#666">cycle —</text>
+    <text x="440" y="315" text-anchor="middle" font-size="14" fill="#666">revisit as needed</text>
+    <!-- Management arrow around outside -->
+    <text x="780" y="290" text-anchor="middle" font-size="13" fill="#028090" font-weight="bold">↕ Change Control</text>
+    <text x="780" y="310" text-anchor="middle" font-size="13" fill="#028090">Traceability</text>
+    <text x="780" y="330" text-anchor="middle" font-size="13" fill="#028090">Version Control</text>
+  </svg>
+  <div class="note">⚠️ KEY EXAM POINT: Management runs THROUGHOUT all stages — it is the outer ring, not a final step. Elicitation and Analysis have a bidirectional relationship — they loop back and forth until requirements are complete.</div>
+</div>
+
+<!-- DIAGRAM 2: KNOWLEDGE TYPES -->
+<div class="page">
+  <div class="page-title">Diagram 2: Knowledge Types — Tacit vs Explicit <span class="page-num">SLIDES 21–24</span></div>
+  <svg viewBox="0 0 880 500" xmlns="http://www.w3.org/2000/svg">
+    <!-- 2x2 Grid -->
+    <rect x="50" y="60" width="380" height="200" fill="#E0F4F6" stroke="#028090" stroke-width="2" rx="8"/>
+    <rect x="450" y="60" width="380" height="200" fill="#FFF3CD" stroke="#856404" stroke-width="2" rx="8"/>
+    <rect x="50" y="280" width="380" height="180" fill="#D4EDDA" stroke="#155724" stroke-width="2" rx="8"/>
+    <rect x="450" y="280" width="380" height="180" fill="#f8d7da" stroke="#721c24" stroke-width="2" rx="8"/>
+    <!-- Column headers -->
+    <text x="240" y="45" text-anchor="middle" font-size="17" font-weight="bold" fill="#028090">EXPLICIT (Known Knowns)</text>
+    <text x="640" y="45" text-anchor="middle" font-size="17" font-weight="bold" fill="#856404">TACIT (Unknown Knowns)</text>
+    <!-- Row headers -->
+    <text x="25" y="175" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a1a2e" transform="rotate(-90 25 175)">INDIVIDUAL</text>
+    <text x="25" y="380" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a1a2e" transform="rotate(-90 25 380)">CORPORATE</text>
+    <!-- Quadrant content -->
+    <text x="240" y="100" text-anchor="middle" font-size="15" font-weight="bold" fill="#028090">Individual Explicit</text>
+    <text x="240" y="125" text-anchor="middle" font-size="13" fill="#1a1a2e">One person knows it</text>
+    <text x="240" y="145" text-anchor="middle" font-size="13" fill="#1a1a2e">and can articulate it</text>
+    <text x="240" y="170" text-anchor="middle" font-size="12" fill="#555">e.g. "I run the month-end</text>
+    <text x="240" y="188" text-anchor="middle" font-size="12" fill="#555">close in 3 steps..."</text>
+    <text x="240" y="212" text-anchor="middle" font-size="12" fill="#028090" font-weight="bold">→ Capture with: Interviews</text>
+    <text x="640" y="100" text-anchor="middle" font-size="15" font-weight="bold" fill="#856404">Individual Tacit</text>
+    <text x="640" y="125" text-anchor="middle" font-size="13" fill="#1a1a2e">One person knows it</text>
+    <text x="640" y="145" text-anchor="middle" font-size="13" fill="#1a1a2e">but cannot articulate it</text>
+    <text x="640" y="170" text-anchor="middle" font-size="12" fill="#555">e.g. Expert instinct —</text>
+    <text x="640" y="188" text-anchor="middle" font-size="12" fill="#555">"I just know when it's wrong"</text>
+    <text x="640" y="212" text-anchor="middle" font-size="12" fill="#856404" font-weight="bold">→ Capture with: Observation, Prototyping</text>
+    <text x="240" y="320" text-anchor="middle" font-size="15" font-weight="bold" fill="#155724">Corporate Explicit</text>
+    <text x="240" y="345" text-anchor="middle" font-size="13" fill="#1a1a2e">Org knows it and has</text>
+    <text x="240" y="365" text-anchor="middle" font-size="13" fill="#1a1a2e">written it down</text>
+    <text x="240" y="390" text-anchor="middle" font-size="12" fill="#555">e.g. Policy documents,</text>
+    <text x="240" y="408" text-anchor="middle" font-size="12" fill="#555">procedures, manuals</text>
+    <text x="240" y="432" text-anchor="middle" font-size="12" fill="#155724" font-weight="bold">→ Capture with: Document Analysis</text>
+    <text x="640" y="320" text-anchor="middle" font-size="15" font-weight="bold" fill="#721c24">Corporate Tacit</text>
+    <text x="640" y="345" text-anchor="middle" font-size="13" fill="#1a1a2e">Org knows it but it has</text>
+    <text x="640" y="365" text-anchor="middle" font-size="13" fill="#1a1a2e">never been written down</text>
+    <text x="640" y="390" text-anchor="middle" font-size="12" fill="#555">e.g. "The way we do things</text>
+    <text x="640" y="408" text-anchor="middle" font-size="12" fill="#555">around here" — culture</text>
+    <text x="640" y="432" text-anchor="middle" font-size="12" fill="#721c24" font-weight="bold">→ Capture with: Workshops, Storytelling</text>
+  </svg>
+  <div class="note">⚠️ KEY POINT: Tacit knowledge is the biggest source of missing requirements. A skilled BA uses techniques that reach ALL four quadrants — not just the easy top-left where knowledge is already articulate.</div>
+</div>
+
+<!-- DIAGRAM 3: TACIT TO EXPLICIT FLOW -->
+<div class="page">
+  <div class="page-title">Diagram 3: Converting Tacit Knowledge to Explicit <span class="page-num">SLIDE 24</span></div>
+  <svg viewBox="0 0 880 420" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#028090"/>
+      </marker>
+    </defs>
+    <!-- Tacit label -->
+    <rect x="20" y="170" width="100" height="60" rx="8" fill="#1a1a2e"/>
+    <text x="70" y="195" text-anchor="middle" font-size="14" font-weight="bold" fill="white">TACIT</text>
+    <text x="70" y="215" text-anchor="middle" font-size="12" fill="#aaa">Unknown</text>
+    <text x="70" y="230" text-anchor="middle" font-size="12" fill="#aaa">Knowns</text>
+    <!-- Step boxes -->
+    <!-- OBSERVE -->
+    <rect x="155" y="140" width="130" height="110" rx="10" fill="#028090"/>
+    <text x="220" y="172" text-anchor="middle" font-size="22">👁️</text>
+    <text x="220" y="198" text-anchor="middle" font-size="15" font-weight="bold" fill="white">OBSERVE</text>
+    <text x="220" y="218" text-anchor="middle" font-size="11" fill="#E0F4F6">Shadowing</text>
+    <text x="220" y="234" text-anchor="middle" font-size="11" fill="#E0F4F6">Observation</text>
+    <!-- RECOUNT -->
+    <rect x="315" y="140" width="130" height="110" rx="10" fill="#028090"/>
+    <text x="380" y="172" text-anchor="middle" font-size="22">💬</text>
+    <text x="380" y="198" text-anchor="middle" font-size="15" font-weight="bold" fill="white">RECOUNT</text>
+    <text x="380" y="218" text-anchor="middle" font-size="11" fill="#E0F4F6">Storytelling</text>
+    <text x="380" y="234" text-anchor="middle" font-size="11" fill="#E0F4F6">Scenario Analysis</text>
+    <!-- ENACT -->
+    <rect x="475" y="140" width="130" height="110" rx="10" fill="#1a1a2e"/>
+    <text x="540" y="172" text-anchor="middle" font-size="22">🎭</text>
+    <text x="540" y="198" text-anchor="middle" font-size="15" font-weight="bold" fill="white">ENACT</text>
+    <text x="540" y="218" text-anchor="middle" font-size="11" fill="#aaa">Prototyping</text>
+    <text x="540" y="234" text-anchor="middle" font-size="11" fill="#aaa">Role-play</text>
+    <!-- REPORT -->
+    <rect x="635" y="140" width="130" height="110" rx="10" fill="#028090"/>
+    <text x="700" y="172" text-anchor="middle" font-size="22">📝</text>
+    <text x="700" y="198" text-anchor="middle" font-size="15" font-weight="bold" fill="white">REPORT &amp;</text>
+    <text x="700" y="216" text-anchor="middle" font-size="15" font-weight="bold" fill="white">LEARN</text>
+    <text x="700" y="236" text-anchor="middle" font-size="11" fill="#E0F4F6">Capture &amp; verify</text>
+    <!-- EXPLICIT label -->
+    <rect x="790" y="170" width="70" height="60" rx="8" fill="#155724"/>
+    <text x="825" y="195" text-anchor="middle" font-size="14" font-weight="bold" fill="white">EXPLICIT</text>
+    <text x="825" y="215" text-anchor="middle" font-size="11" fill="#D4EDDA">Known</text>
+    <text x="825" y="230" text-anchor="middle" font-size="11" fill="#D4EDDA">Knowns</text>
+    <!-- Arrows -->
+    <line x1="120" y1="200" x2="155" y2="200" stroke="#028090" stroke-width="3" marker-end="url(#arr)"/>
+    <line x1="285" y1="200" x2="315" y2="200" stroke="#028090" stroke-width="3" marker-end="url(#arr)"/>
+    <line x1="445" y1="200" x2="475" y2="200" stroke="#028090" stroke-width="3" marker-end="url(#arr)"/>
+    <line x1="605" y1="200" x2="635" y2="200" stroke="#028090" stroke-width="3" marker-end="url(#arr)"/>
+    <line x1="765" y1="200" x2="790" y2="200" stroke="#028090" stroke-width="3" marker-end="url(#arr)"/>
+    <!-- Bottom labels with technique mapping -->
+    <text x="220" y="280" text-anchor="middle" font-size="12" fill="#555">Maps to:</text>
+    <text x="220" y="298" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">Observation</text>
+    <text x="380" y="280" text-anchor="middle" font-size="12" fill="#555">Maps to:</text>
+    <text x="380" y="298" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">Storytelling &amp;</text>
+    <text x="380" y="316" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">Scenario Analysis</text>
+    <text x="540" y="280" text-anchor="middle" font-size="12" fill="#555">Maps to:</text>
+    <text x="540" y="298" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a1a2e">Prototyping</text>
+    <text x="700" y="280" text-anchor="middle" font-size="12" fill="#555">Maps to:</text>
+    <text x="700" y="298" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">Validation &amp;</text>
+    <text x="700" y="316" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">Follow-up notes</text>
+    <!-- Title -->
+    <text x="440" y="370" text-anchor="middle" font-size="13" fill="#666" font-style="italic">Different elicitation techniques unlock different stages of this conversion process</text>
+  </svg>
+  <div class="note">⚠️ EXAM TIP: This flow explains WHY we use multiple techniques — each one targets a different type of knowledge. Observation = Observe stage. Storytelling/Scenario = Recount stage. Prototyping = Enact stage.</div>
+</div>
+
+<!-- DIAGRAM 4: REQUIREMENTS TYPES TREE -->
+<div class="page">
+  <div class="page-title">Diagram 4: Types of Requirement <span class="page-num">SLIDE 46</span></div>
+  <svg viewBox="0 0 880 480" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#028090"/>
+      </marker>
+    </defs>
+    <!-- Root -->
+    <rect x="330" y="20" width="220" height="55" rx="10" fill="#028090"/>
+    <text x="440" y="44" text-anchor="middle" font-size="17" font-weight="bold" fill="white">REQUIREMENTS</text>
+    <text x="440" y="64" text-anchor="middle" font-size="12" fill="#E0F4F6">"Features the business needs"</text>
+    <!-- Two branches -->
+    <line x1="440" y1="75" x2="250" y2="140" stroke="#028090" stroke-width="2.5" marker-end="url(#arr2)"/>
+    <line x1="440" y1="75" x2="630" y2="140" stroke="#028090" stroke-width="2.5" marker-end="url(#arr2)"/>
+    <!-- Business -->
+    <rect x="130" y="140" width="240" height="55" rx="10" fill="#1a1a2e"/>
+    <text x="250" y="163" text-anchor="middle" font-size="16" font-weight="bold" fill="white">BUSINESS</text>
+    <text x="250" y="183" text-anchor="middle" font-size="12" fill="#aaa">Organisation-wide constraints</text>
+    <!-- Solution -->
+    <rect x="510" y="140" width="240" height="55" rx="10" fill="#1a1a2e"/>
+    <text x="630" y="163" text-anchor="middle" font-size="16" font-weight="bold" fill="white">SOLUTION</text>
+    <text x="630" y="183" text-anchor="middle" font-size="12" fill="#aaa">System-specific requirements</text>
+    <!-- General -->
+    <line x1="250" y1="195" x2="140" y2="265" stroke="#028090" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="30" y="265" width="215" height="130" rx="10" fill="#E0F4F6" stroke="#028090" stroke-width="2"/>
+    <text x="137" y="292" text-anchor="middle" font-size="14" font-weight="bold" fill="#028090">GENERAL</text>
+    <text x="137" y="313" text-anchor="middle" font-size="12" fill="#1a1a2e">• Business constraints</text>
+    <text x="137" y="331" text-anchor="middle" font-size="12" fill="#1a1a2e">• Business policies</text>
+    <text x="137" y="349" text-anchor="middle" font-size="12" fill="#1a1a2e">• Legal / regulatory</text>
+    <text x="137" y="367" text-anchor="middle" font-size="12" fill="#1a1a2e">• Branding / cultural</text>
+    <text x="137" y="385" text-anchor="middle" font-size="12" fill="#028090" font-weight="bold">NOT non-functional!</text>
+    <!-- Technical -->
+    <line x1="250" y1="195" x2="360" y2="265" stroke="#028090" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="250" y="265" width="215" height="130" rx="10" fill="#E0F4F6" stroke="#028090" stroke-width="2"/>
+    <text x="357" y="292" text-anchor="middle" font-size="14" font-weight="bold" fill="#028090">TECHNICAL</text>
+    <text x="357" y="313" text-anchor="middle" font-size="12" fill="#1a1a2e">• Hardware constraints</text>
+    <text x="357" y="331" text-anchor="middle" font-size="12" fill="#1a1a2e">• Software compatibility</text>
+    <text x="357" y="349" text-anchor="middle" font-size="12" fill="#1a1a2e">• Interface standards</text>
+    <text x="357" y="367" text-anchor="middle" font-size="12" fill="#1a1a2e">• Internet policies</text>
+    <text x="357" y="385" text-anchor="middle" font-size="12" fill="#028090" font-weight="bold">Tech constraints from org</text>
+    <!-- Functional -->
+    <line x1="630" y1="195" x2="520" y2="265" stroke="#028090" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="410" y="265" width="215" height="130" rx="10" fill="#FFF3CD" stroke="#856404" stroke-width="2"/>
+    <text x="517" y="292" text-anchor="middle" font-size="14" font-weight="bold" fill="#856404">FUNCTIONAL</text>
+    <text x="517" y="313" text-anchor="middle" font-size="12" fill="#1a1a2e">• Data entry</text>
+    <text x="517" y="331" text-anchor="middle" font-size="12" fill="#1a1a2e">• Data maintenance</text>
+    <text x="517" y="349" text-anchor="middle" font-size="12" fill="#1a1a2e">• Procedural (rules)</text>
+    <text x="517" y="367" text-anchor="middle" font-size="12" fill="#1a1a2e">• Retrieval / reporting</text>
+    <text x="517" y="385" text-anchor="middle" font-size="12" fill="#856404" font-weight="bold">WHAT system does</text>
+    <!-- Non-Functional -->
+    <line x1="630" y1="195" x2="740" y2="265" stroke="#028090" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="630" y="265" width="220" height="130" rx="10" fill="#FFF3CD" stroke="#856404" stroke-width="2"/>
+    <text x="740" y="292" text-anchor="middle" font-size="14" font-weight="bold" fill="#856404">NON-FUNCTIONAL</text>
+    <text x="740" y="313" text-anchor="middle" font-size="12" fill="#1a1a2e">• Performance / security</text>
+    <text x="740" y="331" text-anchor="middle" font-size="12" fill="#1a1a2e">• Usability / accessibility</text>
+    <text x="740" y="349" text-anchor="middle" font-size="12" fill="#1a1a2e">• Availability / capacity</text>
+    <text x="740" y="367" text-anchor="middle" font-size="12" fill="#1a1a2e">• Archiving / backup</text>
+    <text x="740" y="385" text-anchor="middle" font-size="12" fill="#856404" font-weight="bold">HOW well system performs</text>
+  </svg>
+  <div class="note">⚠️ MOST TESTED: Branding = General (NOT non-functional). Usability, Archiving, Performance, Security = Non-Functional. This distinction appears in Sample Paper Q15 directly.</div>
+</div>
+
+<!-- DIAGRAM 5: MOSCOW -->
+<div class="page">
+  <div class="page-title">Diagram 5: MoSCoW Prioritisation <span class="page-num">SLIDE 73</span></div>
+  <svg viewBox="0 0 880 520" xmlns="http://www.w3.org/2000/svg">
+    <!-- Pyramid layers -->
+    <polygon points="440,30 640,160 240,160" fill="#C0392B"/>
+    <rect x="220" y="160" width="440" height="90" fill="#E67E22"/>
+    <rect x="170" y="250" width="540" height="90" fill="#F39C12"/>
+    <rect x="100" y="340" width="680" height="110" fill="#95A5A6"/>
+    <!-- Must text -->
+    <text x="440" y="100" text-anchor="middle" font-size="26" font-weight="bold" fill="white">M — MUST HAVE</text>
+    <text x="440" y="130" text-anchor="middle" font-size="14" fill="#FFcccc">Mandatory — cannot meet objectives without it</text>
+    <text x="440" y="150" text-anchor="middle" font-size="13" fill="#FFcccc">Must be in first release</text>
+    <!-- Should text -->
+    <text x="440" y="200" text-anchor="middle" font-size="22" font-weight="bold" fill="white">S — SHOULD HAVE</text>
+    <text x="440" y="225" text-anchor="middle" font-size="13" fill="#FFE5CC">Important but system works short-term without it</text>
+    <text x="440" y="243" text-anchor="middle" font-size="13" fill="#FFE5CC">Target for second increment</text>
+    <!-- Could text -->
+    <text x="440" y="290" text-anchor="middle" font-size="20" font-weight="bold" fill="white">C — COULD HAVE</text>
+    <text x="440" y="315" text-anchor="middle" font-size="13" fill="#FFF5CC">Beneficial if time and budget allow</text>
+    <text x="440" y="333" text-anchor="middle" font-size="13" fill="#FFF5CC">First to drop when under pressure</text>
+    <!-- Won't text -->
+    <text x="440" y="383" text-anchor="middle" font-size="18" font-weight="bold" fill="white">W — WANT (Won't Have This Time)</text>
+    <text x="440" y="408" text-anchor="middle" font-size="13" fill="#eee">Consciously DEFERRED — not excluded forever</text>
+    <text x="440" y="428" text-anchor="middle" font-size="13" fill="#eee">Agreed not to deliver in this release</text>
+    <text x="440" y="448" text-anchor="middle" font-size="13" fill="#eee">May appear in a future phase</text>
+    <!-- Side labels -->
+    <text x="60" y="95" text-anchor="middle" font-size="13" fill="#C0392B" font-weight="bold">HIGHEST</text>
+    <text x="60" y="112" text-anchor="middle" font-size="13" fill="#C0392B" font-weight="bold">PRIORITY</text>
+    <text x="840" y="395" text-anchor="middle" font-size="13" fill="#555" font-weight="bold">LOWEST</text>
+    <text x="840" y="412" text-anchor="middle" font-size="13" fill="#555" font-weight="bold">PRIORITY</text>
+    <!-- Arrow on left -->
+    <line x1="40" y1="130" x2="40" y2="440" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="20" y="290" text-anchor="middle" font-size="14" fill="#666" transform="rotate(-90 20 290)">PRIORITY ORDER</text>
+    <!-- Note at bottom -->
+    <text x="440" y="495" text-anchor="middle" font-size="13" fill="#666" font-style="italic">⚠️ Priorities assigned DURING ANALYSIS — not when requirements are first captured</text>
+  </svg>
+  <div class="note">⚠️ EXAM POINT: 'W' = Want/Won't Have THIS TIME — not permanently excluded. Priorities are set during analysis with reference to the business objectives. They can change as the project evolves.</div>
+</div>
+
+<!-- DIAGRAM 6: TRACEABILITY -->
+<div class="page">
+  <div class="page-title">Diagram 6: Vertical vs Horizontal Traceability <span class="page-num">SLIDE 98</span></div>
+  <svg viewBox="0 0 880 500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="av" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#028090"/>
+      </marker>
+      <marker id="ah2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#C0392B"/>
+      </marker>
+      <marker id="av2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#028090"/>
+      </marker>
+    </defs>
+    <!-- VERTICAL TRACEABILITY section -->
+    <rect x="20" y="20" width="380" height="460" rx="12" fill="#E0F4F6" stroke="#028090" stroke-width="2"/>
+    <text x="210" y="52" text-anchor="middle" font-size="18" font-weight="bold" fill="#028090">VERTICAL TRACEABILITY</text>
+    <text x="210" y="72" text-anchor="middle" font-size="13" fill="#028090">Up ↕ Down the hierarchy</text>
+    <!-- Vertical boxes -->
+    <rect x="110" y="90" width="200" height="50" rx="8" fill="#028090"/>
+    <text x="210" y="111" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Business Objective</text>
+    <text x="210" y="129" text-anchor="middle" font-size="11" fill="#E0F4F6">"Comply with GDPR"</text>
+    <line x1="210" y1="140" x2="210" y2="178" stroke="#028090" stroke-width="3" marker-end="url(#av2)"/>
+    <line x1="210" y1="178" x2="210" y2="140" stroke="#028090" stroke-width="3" marker-end="url(#av2)"/>
+    <rect x="80" y="180" width="260" height="50" rx="8" fill="#1a1a2e"/>
+    <text x="210" y="200" text-anchor="middle" font-size="13" font-weight="bold" fill="white">General Requirement</text>
+    <text x="210" y="218" text-anchor="middle" font-size="11" fill="#aaa">"Data must be protected"</text>
+    <line x1="210" y1="230" x2="210" y2="268" stroke="#028090" stroke-width="3" marker-end="url(#av2)"/>
+    <rect x="60" y="270" width="300" height="50" rx="8" fill="#028090"/>
+    <text x="210" y="290" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Functional Requirement</text>
+    <text x="210" y="308" text-anchor="middle" font-size="11" fill="#E0F4F6">"Record consent at registration"</text>
+    <line x1="210" y1="320" x2="210" y2="358" stroke="#028090" stroke-width="3" marker-end="url(#av2)"/>
+    <rect x="60" y="360" width="300" height="50" rx="8" fill="#1a1a2e"/>
+    <text x="210" y="380" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Non-Functional Requirement</text>
+    <text x="210" y="398" text-anchor="middle" font-size="11" fill="#aaa">"Restrict access to personal data"</text>
+    <text x="210" y="445" text-anchor="middle" font-size="13" fill="#028090" font-weight="bold">Question answered:</text>
+    <text x="210" y="465" text-anchor="middle" font-size="12" fill="#028090">"Does this requirement</text>
+    <text x="210" y="483" text-anchor="middle" font-size="12" fill="#028090">support a business goal?"</text>
+    <!-- HORIZONTAL TRACEABILITY section -->
+    <rect x="480" y="20" width="380" height="460" rx="12" fill="#FFF3CD" stroke="#856404" stroke-width="2"/>
+    <text x="670" y="52" text-anchor="middle" font-size="18" font-weight="bold" fill="#856404">HORIZONTAL TRACEABILITY</text>
+    <text x="670" y="72" text-anchor="middle" font-size="13" fill="#856404">Left → Right across the lifecycle</text>
+    <!-- Horizontal boxes in a timeline -->
+    <rect x="510" y="100" width="110" height="60" rx="8" fill="#856404"/>
+    <text x="565" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="white">SOURCE</text>
+    <text x="565" y="143" text-anchor="middle" font-size="10" fill="#FFE5CC">Who raised it?</text>
+    <text x="565" y="157" text-anchor="middle" font-size="10" fill="#FFE5CC">Finance Director</text>
+    <line x1="620" y1="130" x2="640" y2="130" stroke="#C0392B" stroke-width="3" marker-end="url(#ah2)"/>
+    <rect x="640" y="100" width="90" height="60" rx="8" fill="#E67E22"/>
+    <text x="685" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="white">ANALYSIS</text>
+    <text x="685" y="143" text-anchor="middle" font-size="10" fill="#FFF5CC">Quality</text>
+    <text x="685" y="157" text-anchor="middle" font-size="10" fill="#FFF5CC">checked</text>
+    <line x1="730" y1="130" x2="750" y2="130" stroke="#C0392B" stroke-width="3" marker-end="url(#ah2)"/>
+    <rect x="750" y="100" width="90" height="60" rx="8" fill="#028090"/>
+    <text x="795" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="white">DESIGN</text>
+    <text x="795" y="143" text-anchor="middle" font-size="10" fill="#E0F4F6">Req feeds</text>
+    <text x="795" y="157" text-anchor="middle" font-size="10" fill="#E0F4F6">design</text>
+    <!-- Second row -->
+    <line x1="795" y1="160" x2="795" y2="190" stroke="#C0392B" stroke-width="2"/>
+    <line x1="795" y1="190" x2="565" y2="190" stroke="#C0392B" stroke-width="2"/>
+    <line x1="565" y1="190" x2="565" y2="210" stroke="#C0392B" stroke-width="2" marker-end="url(#ah2)"/>
+    <rect x="510" y="210" width="110" height="60" rx="8" fill="#1a1a2e"/>
+    <text x="565" y="235" text-anchor="middle" font-size="12" font-weight="bold" fill="white">BUILD</text>
+    <text x="565" y="253" text-anchor="middle" font-size="10" fill="#aaa">Feature</text>
+    <text x="565" y="267" text-anchor="middle" font-size="10" fill="#aaa">developed</text>
+    <line x1="620" y1="240" x2="640" y2="240" stroke="#C0392B" stroke-width="3" marker-end="url(#ah2)"/>
+    <rect x="640" y="210" width="90" height="60" rx="8" fill="#155724"/>
+    <text x="685" y="235" text-anchor="middle" font-size="12" font-weight="bold" fill="white">TEST</text>
+    <text x="685" y="253" text-anchor="middle" font-size="10" fill="#D4EDDA">Tested vs</text>
+    <text x="685" y="267" text-anchor="middle" font-size="10" fill="#D4EDDA">acceptance</text>
+    <line x1="730" y1="240" x2="750" y2="240" stroke="#C0392B" stroke-width="3" marker-end="url(#ah2)"/>
+    <rect x="750" y="210" width="90" height="60" rx="8" fill="#C0392B"/>
+    <text x="795" y="235" text-anchor="middle" font-size="12" font-weight="bold" fill="white">DELIVER</text>
+    <text x="795" y="253" text-anchor="middle" font-size="10" fill="#FFcccc">Deployed to</text>
+    <text x="795" y="267" text-anchor="middle" font-size="10" fill="#FFcccc">production</text>
+    <!-- Summary -->
+    <text x="670" y="320" text-anchor="middle" font-size="13" fill="#856404" font-weight="bold">Question answered:</text>
+    <text x="670" y="345" text-anchor="middle" font-size="12" fill="#856404">"What happened to</text>
+    <text x="670" y="365" text-anchor="middle" font-size="12" fill="#856404">this requirement?"</text>
+    <text x="670" y="395" text-anchor="middle" font-size="12" fill="#1a1a2e">"Was it built, tested,</text>
+    <text x="670" y="415" text-anchor="middle" font-size="12" fill="#1a1a2e">and deployed as agreed?"</text>
+    <text x="670" y="445" text-anchor="middle" font-size="13" font-weight="bold" fill="#856404">Need to document:</text>
+    <text x="670" y="465" text-anchor="middle" font-size="12" fill="#1a1a2e">Source + Status + Resolution</text>
+  </svg>
+  <div class="note">⚠️ MOST COMMON EXAM SWAP: Vertical = objective alignment (up/down). Horizontal = lifecycle tracking (left to right across time). Specimen Paper Q20: clothing manufacturer = HORIZONTAL. Sample Paper Q40: need BOTH = document Source + Business Objective alignment.</div>
+</div>
+
+<!-- DIAGRAM 7: CHANGE CONTROL -->
+<div class="page">
+  <div class="page-title">Diagram 7: Change Control Process <span class="page-num">SLIDES 99–100</span></div>
+  <svg viewBox="0 0 880 420" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="acc" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#028090"/>
+      </marker>
+    </defs>
+    <!-- Title note -->
+    <text x="440" y="30" text-anchor="middle" font-size="14" fill="#C0392B" font-weight="bold">⚠️ This process only applies AFTER requirements have been BASELINED (formally signed off)</text>
+    <!-- Step 1 -->
+    <rect x="50" y="60" width="170" height="200" rx="12" fill="#028090"/>
+    <text x="135" y="100" text-anchor="middle" font-size="30" fill="white">1</text>
+    <text x="135" y="135" text-anchor="middle" font-size="18" font-weight="bold" fill="white">DOCUMENT</text>
+    <text x="135" y="160" text-anchor="middle" font-size="12" fill="#E0F4F6">Submit a formal</text>
+    <text x="135" y="178" text-anchor="middle" font-size="12" fill="#E0F4F6">change request</text>
+    <text x="135" y="200" text-anchor="middle" font-size="12" fill="#E0F4F6">Record what change</text>
+    <text x="135" y="218" text-anchor="middle" font-size="12" fill="#E0F4F6">is proposed and why</text>
+    <text x="135" y="245" text-anchor="middle" font-size="11" fill="#AADDEE">Creates audit trail</text>
+    <!-- Step 2 -->
+    <line x1="220" y1="160" x2="243" y2="160" stroke="#028090" stroke-width="3" marker-end="url(#acc)"/>
+    <rect x="243" y="60" width="170" height="200" rx="12" fill="#1a1a2e"/>
+    <text x="328" y="100" text-anchor="middle" font-size="30" fill="white">2</text>
+    <text x="328" y="135" text-anchor="middle" font-size="18" font-weight="bold" fill="white">ANALYSE</text>
+    <text x="328" y="160" text-anchor="middle" font-size="12" fill="#aaa">Assess the impact</text>
+    <text x="328" y="178" text-anchor="middle" font-size="12" fill="#aaa">Time, cost, effort</text>
+    <text x="328" y="196" text-anchor="middle" font-size="12" fill="#aaa">Which other reqs</text>
+    <text x="328" y="214" text-anchor="middle" font-size="12" fill="#aaa">are affected?</text>
+    <text x="328" y="245" text-anchor="middle" font-size="11" fill="#666">Before consulting</text>
+    <!-- Step 3 -->
+    <line x1="413" y1="160" x2="436" y2="160" stroke="#028090" stroke-width="3" marker-end="url(#acc)"/>
+    <rect x="436" y="60" width="170" height="200" rx="12" fill="#856404"/>
+    <text x="521" y="100" text-anchor="middle" font-size="30" fill="white">3</text>
+    <text x="521" y="135" text-anchor="middle" font-size="18" font-weight="bold" fill="white">CONSULT</text>
+    <text x="521" y="160" text-anchor="middle" font-size="12" fill="#FFF3CD">Share analysis with</text>
+    <text x="521" y="178" text-anchor="middle" font-size="12" fill="#FFF3CD">affected stakeholders</text>
+    <text x="521" y="196" text-anchor="middle" font-size="12" fill="#FFF3CD">Get their input and</text>
+    <text x="521" y="214" text-anchor="middle" font-size="12" fill="#FFF3CD">views on impact</text>
+    <text x="521" y="245" text-anchor="middle" font-size="11" fill="#FFE5AA">After analysis done</text>
+    <!-- Step 4 -->
+    <line x1="606" y1="160" x2="629" y2="160" stroke="#028090" stroke-width="3" marker-end="url(#acc)"/>
+    <rect x="629" y="60" width="210" height="200" rx="12" fill="#155724"/>
+    <text x="734" y="100" text-anchor="middle" font-size="30" fill="white">4</text>
+    <text x="734" y="135" text-anchor="middle" font-size="18" font-weight="bold" fill="white">DECIDE</text>
+    <text x="734" y="160" text-anchor="middle" font-size="12" fill="#D4EDDA">Formal decision:</text>
+    <text x="734" y="178" text-anchor="middle" font-size="12" fill="#D4EDDA">APPROVE or REJECT</text>
+    <text x="734" y="196" text-anchor="middle" font-size="12" fill="#D4EDDA">If approved: update</text>
+    <text x="734" y="214" text-anchor="middle" font-size="12" fill="#D4EDDA">requirements &amp; version</text>
+    <text x="734" y="232" text-anchor="middle" font-size="12" fill="#D4EDDA">Config mgmt invoked</text>
+    <text x="734" y="245" text-anchor="middle" font-size="11" fill="#AADDBB">Record the decision</text>
+    <!-- Bottom labels -->
+    <text x="440" y="310" text-anchor="middle" font-size="15" fill="#C0392B" font-weight="bold">CRITICAL: Order matters! Document → Analyse → Consult → Decide</text>
+    <text x="440" y="340" text-anchor="middle" font-size="13" fill="#555">Many candidates put Consult FIRST — this is WRONG.</text>
+    <text x="440" y="360" text-anchor="middle" font-size="13" fill="#555">You must know the impact (Analyse) BEFORE you consult stakeholders.</text>
+    <text x="440" y="390" text-anchor="middle" font-size="13" fill="#028090" font-weight="bold">Sample Paper Q36: Answer A = Document → Analyse → Consult → Decide</text>
+  </svg>
+</div>
+
+<!-- DIAGRAM 8: ANALYSIS FILTERS -->
+<div class="page">
+  <div class="page-title">Diagram 8: The 7 Analysis Filters <span class="page-num">SLIDE 62</span></div>
+  <svg viewBox="0 0 880 500" xmlns="http://www.w3.org/2000/svg">
+    <text x="440" y="35" text-anchor="middle" font-size="16" fill="#555">Apply these filters when reviewing the WHOLE SET of requirements</text>
+    <!-- Filter boxes in a 4+3 grid -->
+    <!-- Row 1 -->
+    <rect x="40" y="55" width="185" height="130" rx="10" fill="#028090"/>
+    <text x="132" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">FILTER 1</text>
+    <text x="132" y="112" text-anchor="middle" font-size="14" font-weight="bold" fill="white">MULTIPLE</text>
+    <text x="132" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="white">REQUIREMENTS</text>
+    <text x="132" y="152" text-anchor="middle" font-size="11" fill="#E0F4F6">Is this one requirement</text>
+    <text x="132" y="168" text-anchor="middle" font-size="11" fill="#E0F4F6">hiding two or more?</text>
+    <text x="132" y="178" text-anchor="middle" font-size="10" fill="#AADDEE">→ Separate them</text>
+
+    <rect x="240" y="55" width="185" height="130" rx="10" fill="#1a1a2e"/>
+    <text x="332" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">FILTER 2</text>
+    <text x="332" y="112" text-anchor="middle" font-size="14" font-weight="bold" fill="white">OVERLAPPING /</text>
+    <text x="332" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="white">DUPLICATE</text>
+    <text x="332" y="152" text-anchor="middle" font-size="11" fill="#aaa">Do two requirements</text>
+    <text x="332" y="168" text-anchor="middle" font-size="11" fill="#aaa">say the same thing?</text>
+    <text x="332" y="178" text-anchor="middle" font-size="10" fill="#888">→ Merge or remove</text>
+
+    <rect x="440" y="55" width="185" height="130" rx="10" fill="#856404"/>
+    <text x="532" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">FILTER 3</text>
+    <text x="532" y="112" text-anchor="middle" font-size="14" font-weight="bold" fill="white">FEASIBILITY</text>
+    <text x="532" y="135" text-anchor="middle" font-size="11" fill="#FFF3CD">Can this actually</text>
+    <text x="532" y="151" text-anchor="middle" font-size="11" fill="#FFF3CD">be built within the</text>
+    <text x="532" y="167" text-anchor="middle" font-size="11" fill="#FFF3CD">project constraints?</text>
+    <text x="532" y="178" text-anchor="middle" font-size="10" fill="#FFE5AA">→ Renegotiate if not</text>
+
+    <rect x="640" y="55" width="200" height="130" rx="10" fill="#C0392B"/>
+    <text x="740" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">FILTER 4</text>
+    <text x="740" y="112" text-anchor="middle" font-size="14" font-weight="bold" fill="white">CONFLICTS</text>
+    <text x="740" y="135" text-anchor="middle" font-size="11" fill="#FFcccc">Do any requirements</text>
+    <text x="740" y="151" text-anchor="middle" font-size="11" fill="#FFcccc">contradict each other?</text>
+    <text x="740" y="167" text-anchor="middle" font-size="11" fill="#FFcccc">e.g. 24/7 + maintenance</text>
+    <text x="740" y="178" text-anchor="middle" font-size="10" fill="#FFAAAA">→ Resolve with stakeholders</text>
+
+    <!-- Row 2 (3 centred) -->
+    <rect x="110" y="215" width="200" height="130" rx="10" fill="#155724"/>
+    <text x="210" y="250" text-anchor="middle" font-size="13" font-weight="bold" fill="white">FILTER 5</text>
+    <text x="210" y="272" text-anchor="middle" font-size="14" font-weight="bold" fill="white">SOLUTIONS</text>
+    <text x="210" y="292" text-anchor="middle" font-size="11" fill="#D4EDDA">Is HOW embedded</text>
+    <text x="210" y="308" text-anchor="middle" font-size="11" fill="#D4EDDA">in a WHAT requirement?</text>
+    <text x="210" y="325" text-anchor="middle" font-size="11" fill="#D4EDDA">"Use a dropdown" = design</text>
+    <text x="210" y="338" text-anchor="middle" font-size="10" fill="#AADDBB">→ Remove the solution</text>
+
+    <rect x="340" y="215" width="200" height="130" rx="10" fill="#028090"/>
+    <text x="440" y="250" text-anchor="middle" font-size="13" font-weight="bold" fill="white">FILTER 6</text>
+    <text x="440" y="270" text-anchor="middle" font-size="12" font-weight="bold" fill="white">QUALITY OF</text>
+    <text x="440" y="288" text-anchor="middle" font-size="12" font-weight="bold" fill="white">EXPRESSION</text>
+    <text x="440" y="308" text-anchor="middle" font-size="11" fill="#E0F4F6">Is it clearly written?</text>
+    <text x="440" y="324" text-anchor="middle" font-size="11" fill="#E0F4F6">CCCRRUCT checklist</text>
+    <text x="440" y="338" text-anchor="middle" font-size="10" fill="#AADDEE">→ Rewrite until testable</text>
+
+    <rect x="570" y="215" width="200" height="130" rx="10" fill="#1a1a2e"/>
+    <text x="670" y="250" text-anchor="middle" font-size="13" font-weight="bold" fill="white">FILTER 7</text>
+    <text x="670" y="272" text-anchor="middle" font-size="14" font-weight="bold" fill="white">RELEVANCE</text>
+    <text x="670" y="295" text-anchor="middle" font-size="11" fill="#aaa">Is this in scope?</text>
+    <text x="670" y="311" text-anchor="middle" font-size="11" fill="#aaa">Does it align with</text>
+    <text x="670" y="327" text-anchor="middle" font-size="11" fill="#aaa">business objectives?</text>
+    <text x="670" y="338" text-anchor="middle" font-size="10" fill="#888">→ Flag, do not just delete</text>
+
+    <text x="440" y="400" text-anchor="middle" font-size="14" fill="#028090" font-weight="bold">New in v6.1: Filter 6 "Quality of Expression" was added to the syllabus</text>
+    <text x="440" y="430" text-anchor="middle" font-size="13" fill="#555">Remember: Filters 1–4 check the SET. Filters 5–7 also apply individually.</text>
+    <text x="440" y="460" text-anchor="middle" font-size="13" fill="#C0392B" font-weight="bold">Conflicts ≠ Duplicates. Solutions ≠ Feasibility. Know the difference.</text>
+  </svg>
+</div>
+
+<!-- DIAGRAM 9: MODELLING OVERVIEW -->
+<div class="page">
+  <div class="page-title">Diagram 9: Modelling Techniques — Which Model Does What? <span class="page-num">SLIDES 74–81</span></div>
+  <svg viewBox="0 0 880 520" xmlns="http://www.w3.org/2000/svg">
+    <!-- Column headers -->
+    <rect x="30" y="20" width="130" height="45" rx="6" fill="#1a1a2e"/>
+    <text x="95" y="48" text-anchor="middle" font-size="13" font-weight="bold" fill="white">MODEL</text>
+    <rect x="175" y="20" width="160" height="45" rx="6" fill="#028090"/>
+    <text x="255" y="48" text-anchor="middle" font-size="13" font-weight="bold" fill="white">WHAT IT SHOWS</text>
+    <rect x="350" y="20" width="170" height="45" rx="6" fill="#856404"/>
+    <text x="435" y="37" text-anchor="middle" font-size="12" font-weight="bold" fill="white">BEST FOR</text>
+    <text x="435" y="55" text-anchor="middle" font-size="12" font-weight="bold" fill="white">REQUIREMENTS</text>
+    <rect x="535" y="20" width="150" height="45" rx="6" fill="#155724"/>
+    <text x="610" y="37" text-anchor="middle" font-size="12" font-weight="bold" fill="white">DOES NOT</text>
+    <text x="610" y="55" text-anchor="middle" font-size="12" font-weight="bold" fill="white">SHOW</text>
+    <rect x="700" y="20" width="155" height="45" rx="6" fill="#C0392B"/>
+    <text x="777" y="37" text-anchor="middle" font-size="12" font-weight="bold" fill="white">EXAM</text>
+    <text x="777" y="55" text-anchor="middle" font-size="12" font-weight="bold" fill="white">SPOTLIGHT</text>
+    <!-- Row data -->
+    <!-- Use Case -->
+    <rect x="30" y="78" width="820" height="68" rx="4" fill="#f0f8fa"/>
+    <text x="95" y="104" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">USE CASE</text>
+    <text x="95" y="120" text-anchor="middle" font-size="11" fill="#555">(Function Model)</text>
+    <text x="95" y="138" text-anchor="middle" font-size="10" fill="#028090">Slide 76</text>
+    <text x="255" y="104" text-anchor="middle" font-size="11" fill="#1a1a2e">System features (use cases),</text>
+    <text x="255" y="120" text-anchor="middle" font-size="11" fill="#1a1a2e">actors who use them, system</text>
+    <text x="255" y="136" text-anchor="middle" font-size="11" fill="#1a1a2e">boundary and access control</text>
+    <text x="435" y="104" text-anchor="middle" font-size="11" fill="#856404">Access &amp; security req.</text>
+    <text x="435" y="120" text-anchor="middle" font-size="11" fill="#856404">Features of the system</text>
+    <text x="435" y="136" text-anchor="middle" font-size="11" fill="#856404">Who uses what function</text>
+    <text x="610" y="112" text-anchor="middle" font-size="11" fill="#721c24">Data structure.</text>
+    <text x="610" y="128" text-anchor="middle" font-size="11" fill="#721c24">Activity sequence/flow.</text>
+    <text x="777" y="112" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Q9 Specimen: NOT</text>
+    <text x="777" y="128" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">for showing flow!</text>
+    <!-- UML Activity -->
+    <rect x="30" y="150" width="820" height="68" rx="4" fill="#f8f8f8"/>
+    <text x="95" y="176" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">UML ACTIVITY</text>
+    <text x="95" y="192" text-anchor="middle" font-size="11" fill="#555">(Replaced BAM)</text>
+    <text x="95" y="208" text-anchor="middle" font-size="10" fill="#028090">v6.1 new</text>
+    <text x="255" y="176" text-anchor="middle" font-size="11" fill="#1a1a2e">ORDER of activities, decisions,</text>
+    <text x="255" y="192" text-anchor="middle" font-size="11" fill="#1a1a2e">swim lanes (who does what),</text>
+    <text x="255" y="208" text-anchor="middle" font-size="11" fill="#1a1a2e">events that trigger activities</text>
+    <text x="435" y="176" text-anchor="middle" font-size="11" fill="#856404">Process flow requirements</text>
+    <text x="435" y="192" text-anchor="middle" font-size="11" fill="#856404">Operational guidance rules</text>
+    <text x="435" y="208" text-anchor="middle" font-size="11" fill="#856404">Decision-based rules</text>
+    <text x="610" y="184" text-anchor="middle" font-size="11" fill="#721c24">Data. Features by actor.</text>
+    <text x="610" y="200" text-anchor="middle" font-size="11" fill="#721c24">Customer emotions.</text>
+    <text x="777" y="184" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Q14 Specimen:</text>
+    <text x="777" y="200" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Operational Guidance</text>
+    <!-- BPMN -->
+    <rect x="30" y="222" width="820" height="68" rx="4" fill="#f0f8fa"/>
+    <text x="95" y="248" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">BPMN</text>
+    <text x="95" y="264" text-anchor="middle" font-size="11" fill="#555">Business Process</text>
+    <text x="255" y="248" text-anchor="middle" font-size="11" fill="#1a1a2e">End-to-end process, swim lanes</text>
+    <text x="255" y="264" text-anchor="middle" font-size="11" fill="#1a1a2e">for roles, access control,</text>
+    <text x="255" y="280" text-anchor="middle" font-size="11" fill="#1a1a2e">decision gateways</text>
+    <text x="435" y="256" text-anchor="middle" font-size="11" fill="#856404">Access &amp; security (swim lanes)</text>
+    <text x="435" y="272" text-anchor="middle" font-size="11" fill="#856404">Flow and sequence</text>
+    <text x="610" y="256" text-anchor="middle" font-size="11" fill="#721c24">Data relationships.</text>
+    <text x="610" y="272" text-anchor="middle" font-size="11" fill="#721c24">Customer feelings.</text>
+    <text x="777" y="256" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Both BPMN &amp; Use</text>
+    <text x="777" y="272" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Case show access</text>
+    <!-- Data Model -->
+    <rect x="30" y="294" width="820" height="68" rx="4" fill="#f8f8f8"/>
+    <text x="95" y="320" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">DATA MODEL</text>
+    <text x="95" y="336" text-anchor="middle" font-size="11" fill="#555">UML Class Model</text>
+    <text x="95" y="352" text-anchor="middle" font-size="10" fill="#C0392B">ERD removed v6.1</text>
+    <text x="255" y="320" text-anchor="middle" font-size="11" fill="#1a1a2e">Data entities (classes),</text>
+    <text x="255" y="336" text-anchor="middle" font-size="11" fill="#1a1a2e">their attributes, and</text>
+    <text x="255" y="352" text-anchor="middle" font-size="11" fill="#1a1a2e">relationships between them</text>
+    <text x="435" y="320" text-anchor="middle" font-size="11" fill="#856404">Data constraints / rules</text>
+    <text x="435" y="336" text-anchor="middle" font-size="11" fill="#856404">about data relationships</text>
+    <text x="610" y="328" text-anchor="middle" font-size="11" fill="#721c24">Process flow. Activities.</text>
+    <text x="610" y="344" text-anchor="middle" font-size="11" fill="#721c24">Who uses features.</text>
+    <text x="777" y="328" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Q9 Specimen: NOT</text>
+    <text x="777" y="344" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">for triggers/activities</text>
+    <!-- CRUD -->
+    <rect x="30" y="366" width="820" height="68" rx="4" fill="#f0f8fa"/>
+    <text x="95" y="392" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">CRUD MATRIX</text>
+    <text x="255" y="384" text-anchor="middle" font-size="11" fill="#1a1a2e">Cross-checks use cases vs data</text>
+    <text x="255" y="400" text-anchor="middle" font-size="11" fill="#1a1a2e">— who Creates, Reads, Updates,</text>
+    <text x="255" y="416" text-anchor="middle" font-size="11" fill="#1a1a2e">Deletes which data entity</text>
+    <text x="435" y="392" text-anchor="middle" font-size="11" fill="#856404">Data rule verification</text>
+    <text x="435" y="408" text-anchor="middle" font-size="11" fill="#856404">Gaps in data creation</text>
+    <text x="610" y="400" text-anchor="middle" font-size="11" fill="#721c24">Process flow. Features.</text>
+    <text x="777" y="392" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Q13 Specimen:</text>
+    <text x="777" y="408" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Cross-check rules</text>
+    <!-- CJM -->
+    <rect x="30" y="438" width="820" height="68" rx="4" fill="#f8f8f8"/>
+    <text x="95" y="460" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">CUSTOMER</text>
+    <text x="95" y="476" text-anchor="middle" font-size="12" font-weight="bold" fill="#028090">JOURNEY MAP</text>
+    <text x="255" y="460" text-anchor="middle" font-size="11" fill="#1a1a2e">Customer emotions, perceptions,</text>
+    <text x="255" y="476" text-anchor="middle" font-size="11" fill="#1a1a2e">touchpoints, stages, personas</text>
+    <text x="255" y="492" text-anchor="middle" font-size="11" fill="#1a1a2e">FROM THE CUSTOMER'S VIEW</text>
+    <text x="435" y="460" text-anchor="middle" font-size="11" fill="#856404">Customer experience req.</text>
+    <text x="435" y="476" text-anchor="middle" font-size="11" fill="#856404">Emotions at each stage</text>
+    <text x="610" y="460" text-anchor="middle" font-size="11" fill="#721c24">Business KPIs. Data flow.</text>
+    <text x="610" y="476" text-anchor="middle" font-size="11" fill="#721c24">Internal process detail.</text>
+    <text x="777" y="460" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Q15 Specimen:</text>
+    <text x="777" y="476" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Customer focus only</text>
+  </svg>
+</div>
+
+<!-- DIAGRAM 10: VALIDATION SUMMARY -->
+<div class="page">
+  <div class="page-title">Diagram 10: Validation — Agile vs Linear & Stakeholder Roles <span class="page-num">SLIDES 85–93</span></div>
+  <svg viewBox="0 0 880 500" xmlns="http://www.w3.org/2000/svg">
+    <!-- Left: Linear -->
+    <rect x="20" y="20" width="400" height="290" rx="12" fill="#E0F4F6" stroke="#028090" stroke-width="2"/>
+    <text x="220" y="52" text-anchor="middle" font-size="18" font-weight="bold" fill="#028090">LINEAR VALIDATION</text>
+    <rect x="40" y="65" width="360" height="40" rx="6" fill="#028090"/>
+    <text x="220" y="91" text-anchor="middle" font-size="13" font-weight="bold" fill="white">WHEN: After BRD is complete — once</text>
+    <rect x="40" y="115" width="360" height="40" rx="6" fill="#1a1a2e"/>
+    <text x="220" y="141" text-anchor="middle" font-size="13" font-weight="bold" fill="white">HOW: Formal structured review group</text>
+    <rect x="40" y="165" width="360" height="40" rx="6" fill="#028090"/>
+    <text x="220" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="white">OUTPUT: Signed-off, baselined BRD</text>
+    <rect x="40" y="215" width="360" height="40" rx="6" fill="#C0392B"/>
+    <text x="220" y="235" text-anchor="middle" font-size="13" font-weight="bold" fill="white">AFTER: All changes via formal change control</text>
+    <text x="220" y="275" text-anchor="middle" font-size="13" fill="#028090">⚠️ Formal AND informal validation</text>
+    <text x="220" y="295" text-anchor="middle" font-size="13" fill="#028090">both exist in linear projects</text>
+    <!-- Right: Agile -->
+    <rect x="460" y="20" width="400" height="290" rx="12" fill="#D4EDDA" stroke="#155724" stroke-width="2"/>
+    <text x="660" y="52" text-anchor="middle" font-size="18" font-weight="bold" fill="#155724">AGILE VALIDATION</text>
+    <rect x="480" y="65" width="360" height="40" rx="6" fill="#155724"/>
+    <text x="660" y="85" text-anchor="middle" font-size="12" font-weight="bold" fill="white">WHEN 1: On entering the backlog</text>
+    <text x="660" y="101" text-anchor="middle" font-size="12" font-weight="bold" fill="white">(outlines acceptable at this point)</text>
+    <rect x="480" y="115" width="360" height="40" rx="6" fill="#1a1a2e"/>
+    <text x="660" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="white">WHEN 2: When story is deemed "Ready"</text>
+    <text x="660" y="151" text-anchor="middle" font-size="12" font-weight="bold" fill="white">(acceptance criteria defined)</text>
+    <rect x="480" y="165" width="360" height="40" rx="6" fill="#155724"/>
+    <text x="660" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="white">HOW: Less formal, ongoing refinement</text>
+    <rect x="480" y="215" width="360" height="40" rx="6" fill="#028090"/>
+    <text x="660" y="235" text-anchor="middle" font-size="13" font-weight="bold" fill="white">OUTPUT: Prioritised, elaborated stories</text>
+    <text x="660" y="275" text-anchor="middle" font-size="13" fill="#155724">⚠️ EXAM: Agile validation = TWICE</text>
+    <text x="660" y="295" text-anchor="middle" font-size="13" fill="#155724">Specimen Q7 Answer B</text>
+
+    <!-- Stakeholder roles table -->
+    <text x="440" y="335" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a2e">Who is involved and what they do</text>
+    <rect x="20" y="350" width="840" height="30" rx="4" fill="#1a1a2e"/>
+    <text x="150" y="371" text-anchor="middle" font-size="12" font-weight="bold" fill="white">STAKEHOLDER</text>
+    <text x="440" y="371" text-anchor="middle" font-size="12" font-weight="bold" fill="white">ROLE IN VALIDATION</text>
+    <text x="770" y="371" text-anchor="middle" font-size="12" font-weight="bold" fill="white">KEY POINT</text>
+    <rect x="20" y="382" width="840" height="24" fill="#E0F4F6"/>
+    <text x="150" y="399" text-anchor="middle" font-size="11" fill="#028090" font-weight="bold">Business Sponsor</text>
+    <text x="440" y="399" text-anchor="middle" font-size="11" fill="#1a1a2e">Ensures req. align with objectives. Chairs review.</text>
+    <text x="770" y="399" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">Typically signs off</text>
+    <rect x="20" y="406" width="840" height="24" fill="#f8f8f8"/>
+    <text x="150" y="423" text-anchor="middle" font-size="11" fill="#028090" font-weight="bold">Business Owners</text>
+    <text x="440" y="423" text-anchor="middle" font-size="11" fill="#1a1a2e">Confirm accuracy of requirements for their area</text>
+    <text x="770" y="423" text-anchor="middle" font-size="11" fill="#C0392B" font-weight="bold">They approve — not the BA</text>
+    <rect x="20" y="430" width="840" height="24" fill="#E0F4F6"/>
+    <text x="150" y="447" text-anchor="middle" font-size="11" fill="#028090" font-weight="bold">SMEs</text>
+    <text x="440" y="447" text-anchor="middle" font-size="11" fill="#1a1a2e">Specialist domain knowledge — legal, compliance etc.</text>
+    <text x="770" y="447" text-anchor="middle" font-size="11" fill="#555">Business advice</text>
+    <rect x="20" y="454" width="840" height="24" fill="#f8f8f8"/>
+    <text x="150" y="471" text-anchor="middle" font-size="11" fill="#028090" font-weight="bold">Developers</text>
+    <text x="440" y="471" text-anchor="middle" font-size="11" fill="#1a1a2e">Assess TECHNICAL feasibility</text>
+    <text x="770" y="471" text-anchor="middle" font-size="11" fill="#555">NOT business feasibility</text>
+    <rect x="20" y="478" width="840" height="24" fill="#E0F4F6"/>
+    <text x="150" y="495" text-anchor="middle" font-size="11" fill="#028090" font-weight="bold">Testers</text>
+    <text x="440" y="495" text-anchor="middle" font-size="11" fill="#1a1a2e">Confirm testability, define acceptance criteria</text>
+    <text x="770" y="495" text-anchor="middle" font-size="11" fill="#555">Can I test this req?</text>
+  </svg>
+</div>
+
+</body>
+</html>
