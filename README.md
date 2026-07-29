@@ -20,3 +20,4 @@ This material is meant to support your learning alongside the classroom sessions
 ## Contact
 Name: Shweta Goyal
 email: goyal.shweta28@gmail.com
+linkedin: https://www.linkedin.com/in/shweta-g-goyal/
